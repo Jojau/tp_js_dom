@@ -49,12 +49,32 @@ const initTime = 10;
 // Complétez la fonction runChrono pour qu'elle affiche un décompte
 // de n à 0, dans une div (id: counter), placée sous la balise h3 précédemment ajoutée
 // Vous ne devez pas toucher au code HTML, et le h3 doit continuer à s'afficher
-function runChrono(/* votre code */) {
-  // TODO votre code
+function runChrono(n) {
+  var counter = document.createElement("div");
+  workspace.appendChild(counter);
+
+  var chrono = document.createElement("p");
+  chrono.textContent = n;
+  counter.appendChild(chrono);
+
+  //var i = n;
+  intervale = setInterval(function(){
+    if(n<=0)
+      return; //Stoppe la fonction quand le compteur atteind 0
+    
+    n--;
+    console.log(n);
+
+    chrono.remove(); //on efface le chiffre précédent
+    chrono.textContent = n; //on met le nouveau
+    counter.appendChild(chrono);
+
+  }, 1000);
 }
 
-console.log(runChrono(/* votre code */));
+console.log(runChrono(10));
 
+//TODO
 // Ajoutez à l'élément workspace un bouton permettant de déclencher
 // le décompte lors d'un clic, avec le texte "Start countdown"
 // Le bouton doit être inséré après l'élément h3
