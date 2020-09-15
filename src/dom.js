@@ -72,7 +72,7 @@ function runChrono(n) {
   }, 1000);
 }
 
-console.log(runChrono(10));
+//console.log(runChrono(10));
 
 //TODO
 // Ajoutez à l'élément workspace un bouton permettant de déclencher
@@ -82,3 +82,32 @@ console.log(runChrono(10));
 // Le décompte est réinitialisé lorsque l'utilisateur clique une
 // nouvelle fois sur le bouton
 // votre code
+var bouton = document.createElement('button');
+bouton.id='start';
+bouton.textContent='Start countdown';
+workspace.firstChild.insertAdjacentElement('afterEnd', bouton);
+
+const n = 10;
+
+var counter = document.createElement("div");
+workspace.appendChild(counter);
+
+var chrono = document.createElement("p");
+chrono.textContent = n;
+counter.appendChild(chrono);
+
+document.getElementById('start').addEventListener("click", function()
+{
+  intervale = setInterval(function(){
+    if(n<=0)
+      return; //Stoppe la fonction quand le compteur atteind 0
+    
+    n--;
+    console.log(n);
+
+    chrono.remove(); //on efface le chiffre précédent
+    chrono.textContent = n; //on met le nouveau
+    counter.appendChild(chrono);
+
+  }, 1000);
+});

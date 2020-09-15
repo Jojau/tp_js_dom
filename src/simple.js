@@ -31,10 +31,10 @@ function removeEvenNumbers(tab) {
 	{
 		for(i=0;i<tab.length;i++)
 		{
-		if(tab[i]%2 != 0 || tab[i]<0) //si c'est impair OU <0
-		{
-			tab.splice(i, 1); //supprime 1 élément à l'indice i
-		}
+			if(tab[i]%2 != 0 || tab[i]<0) //si c'est impair OU <0
+			{
+				tab.splice(i, 1); //supprime 1 élément à l'indice i
+			}
 		}
 		return tab;
 	}
@@ -100,6 +100,7 @@ function multTables(max) {
 
 console.log('Tables de multiplication :', multTables(5));
 
+//ANCHOR Dernier Exercice : voir correction
 const products = [
 	{
 		model: "Xiaomi Mi 9",
@@ -121,8 +122,8 @@ const products = [
 // Vous ne devez pas créer d'objet à l'intérieur de la fonction,
 // ni utiliser de variable globale
 function howLongIsIt(obj) {
-	let longueurs = new Object; //TODO Je suis pas censée faire ça mais j'ai envie d'avancer
-	longueurs.model = obj.model.length;
+	let longueurs = new Object; //Je suis pas censée faire ça mais j'ai envie d'avancer
+	longueurs.model = obj.model.length; //J'aurais dû faire une boucle qui parcours les propriétés
 	longueurs.size = obj.size.length;
 	longueurs.weight = obj.weight.length;
 	
